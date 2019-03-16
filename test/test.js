@@ -17,7 +17,7 @@ class CashRegister {
 		return cashRA.reduce(sum)/cashRA.length
 	}
 	getMode(){
-		return  cashRA[0]
+		return  {}
 	}	
 
 }      
