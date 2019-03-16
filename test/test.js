@@ -11,12 +11,13 @@ class CashRegister {
 	getMin(){
 		return Math.min(...cashRA)
 	}	
-
+	getMean(){
+		return cashRA[0]
+	}
 }      
 var cashRA = []
 var a; //used for the inital length
 var b; //used for the final length
-
 
 const assert = require('assert'); 
 const register = new CashRegister();
@@ -47,6 +48,15 @@ describe('CashRegister', function() {
   });
 });
 
+
+describe('CashRegister', function() {
+  describe('#getMean()', function() {
+    it('it should return the sum of everything in the array', function() {  
+    	const reducer = (accumulator, currentValue) => accumulator + currentValue;  	
+    	assert.equal(   register.getMean(), cashRA.reduce(reducer)   );
+    });
+  });
+});
 
 /*assumptions
 	0. the ringUp function requires an array
