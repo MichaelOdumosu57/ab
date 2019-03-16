@@ -6,8 +6,11 @@ class CashRegister {
 		return 'true'
 	}
 	getMax(){
-		return cashRA
+		return Math.max(...cashRA)
 	}
+	getMin(){
+		return Math.max(...cashRA)
+	}	
 
 }      
 var cashRA = []
@@ -36,9 +39,18 @@ describe('CashRegister', function() {
   });
 });
 
+describe('CashRegister', function() {
+  describe('#getMin()', function() {
+    it('should find the min', function() {    	
+    	assert.equal(   register.getMax(), Math.min(...cashRA)   );
+    });
+  });
+});
+
 
 /*assumptions
 	0. the ringUp function requires an array
 	1. I assumme that ringUp only adds one int at a time
 		a. I assume this is all that ringUp needs to do
+	2. I assume I can use Math.max and Math.min to easily find the max and min values
 */
