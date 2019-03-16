@@ -16,6 +16,9 @@ class CashRegister {
 	getMean(){
 		return cashRA.reduce(sum)/cashRA.length
 	}
+	getMode(){
+		return  cashRA[0]
+	}	
 
 }      
 var cashRA = []
@@ -61,9 +64,18 @@ describe('CashRegister', function() {
   });
 });
 
+describe('CashRegister', function() {
+  describe('#getMode()', function() {
+    it('it generates an object ', function() {      	
+    	assert.equal(   typeof(   register.getMode()   ),'object'    );
+    });
+  });
+});
+
 /*assumptions
 	0. the ringUp function requires an array
 	1. I assumme that ringUp only adds one int at a time
 		a. I assume this is all that ringUp needs to do
 	2. I assume I can use Math.max and Math.min to easily find the max and min values
+	3. for the mode it will be used as an object the key for the items in the cashRA, values, how many times it appears
 */
