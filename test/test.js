@@ -1,3 +1,5 @@
+function sum(a, b){ return b += a}; // would make a method but since I cant use super with mocha I must resort to this
+
 class CashRegister {
 
 
@@ -12,13 +14,15 @@ class CashRegister {
 		return Math.min(...cashRA)
 	}	
 	getMean(){
-		return cashRA[0]
+		return cashRA.reduce(sum)
 	}
+
 }      
 var cashRA = []
 var a; //used for the inital length
 var b; //used for the final length
 
+  
 const assert = require('assert'); 
 const register = new CashRegister();
 describe('CashRegister', function() {
@@ -51,9 +55,8 @@ describe('CashRegister', function() {
 
 describe('CashRegister', function() {
   describe('#getMean()', function() {
-    it('it should return the sum of everything in the array', function() {  
-    	const reducer = (accumulator, currentValue) => accumulator + currentValue;  	
-    	assert.equal(   register.getMean(), cashRA.reduce(reducer)   );
+    it('it should return the sum of everything in the array', function() {      	
+    	assert.equal(   register.getMean(), cashRA.reduce((a, b)=>{ return b += a})   );
     });
   });
 });
