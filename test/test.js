@@ -9,7 +9,7 @@ class CashRegister {
 		return Math.max(...cashRA)
 	}
 	getMin(){
-		return Math.max(...cashRA)
+		return Math.min(...cashRA)
 	}	
 
 }      
@@ -42,7 +42,7 @@ describe('CashRegister', function() {
 describe('CashRegister', function() {
   describe('#getMin()', function() {
     it('should find the min', function() {    	
-    	assert.equal(   register.getMax(), Math.min(...cashRA)   );
+    	assert.equal(   register.getMin(), Math.min(...cashRA)   );
     });
   });
 });
