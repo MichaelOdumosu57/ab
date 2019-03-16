@@ -6,7 +6,7 @@ class CashRegister {
 		return 'true'
 	}
 	getMax(){
-
+		return cashRA
 	}
 
 }      
