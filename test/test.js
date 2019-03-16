@@ -14,7 +14,7 @@ class CashRegister {
 		return Math.min(...cashRA)
 	}	
 	getMean(){
-		return cashRA.reduce(sum)
+		return cashRA.reduce(sum)/cashRA.length
 	}
 
 }      
@@ -55,8 +55,8 @@ describe('CashRegister', function() {
 
 describe('CashRegister', function() {
   describe('#getMean()', function() {
-    it('it should return the sum of everything in the array', function() {      	
-    	assert.equal(   register.getMean(), cashRA.reduce((a, b)=>{ return b += a})   );
+    it('it should divide the sum by the length returning the mean', function() {      	
+    	assert.equal(   register.getMean(), cashRA.reduce((a, b)=>{ return b += a})/cashRA.length   );
     });
   });
 });
