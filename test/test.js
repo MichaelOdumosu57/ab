@@ -29,8 +29,9 @@ describe('CashRegister', function() {
 
 describe('CashRegister', function() {
   describe('#getMax()', function() {
-    it('should print the array', function() {
-    	assert.equal(   register.getMax(), cashRA );
+    it('should find the max', function() {
+    	register.ringUp(3)
+    	assert.equal(   register.getMax(), Math.max(...cashRA)   );
     });
   });
 });
