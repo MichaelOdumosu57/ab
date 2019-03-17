@@ -17,7 +17,7 @@ class CashRegister {
 		return cashRA.reduce(sum)/cashRA.length
 	}
 	getMode(){
-		// cashRA.map(x => cashRAMO[x] = 0)
+		cashRA.map(x => cashRAMO[x] = 0)
 		console.log(   cashRAMO   )
 		return cashRAMO
 	}	
