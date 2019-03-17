@@ -1,0 +1,42 @@
+
+Shubhangi Joshi <shubhangi.joshi@techolution.com>
+6:41 PM (2 minutes ago)
+to me
+
+Hi Michael,
+
+As discussed please complete this assignment.
+
+Here is the coding challenge.
+Please take no later than 2 hours to complete the following assignment. Once you finish it please put it in your Github and please make it private (Also please  download it and email it to me)
+
+For the assignment...
+Ensure each method, runs in constant time (O(1) time complexity).
+You may assume ringUp will be called at least once.
+State any other assumptions you make in your solution.
+This should be written using TDD methodology:
+You should use a testing library of your choice (including Jest/Mocha/Chai/JUnit/QUnit/unittest/MiniTest/Rspec/etc)
+NO OTHER libraries are needed/desired.
+Please make sure to have 100% test coverage for the assignment
+Write a class CashRegister with these methods:
+
+ringUp(int) // - Receives an integer (total price) for tracking.
+getMax() // - Returns the max (int) of all integers seen so far.
+getMin() // - Returns the min (int) of all integers seen so far.
+getMean() // - Returns the mean (float) of all integers seen so far.
+getMode() // - Returns the mode (most frequent) (int) of all integers seen so far.
+
+// For example, in JS: (but feel free to use the language of your choice)
+const register = new CashRegister()
+register.ringUp(1)
+register.ringUp(0)
+register.getMax() // => 1
+register.getMin() // => 0
+register.getMean() // => 0.5
+register.getMode() // => 1 (1 or 0 is acceptable)
+register.ringUp(3)
+register.ringUp(1)
+register.getMax() // => 3
+register.getMin() // => 0
+register.getMean() // => 1.25
+register.getMode() // => 1M
