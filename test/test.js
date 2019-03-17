@@ -17,11 +17,14 @@ class CashRegister {
 		return cashRA.reduce(sum)/cashRA.length
 	}
 	getMode(){
-		return  {}
+		// cashRA.map(x => cashRAMO[x] = 0)
+		console.log(   cashRAMO   )
+		return cashRAMO
 	}	
 
 }      
 var cashRA = []
+var cashRAMO = {} // cashRA Mode Object helps to determine the mode for the object
 var a; //used for the inital length
 var b; //used for the final length
 
@@ -66,8 +69,12 @@ describe('CashRegister', function() {
 
 describe('CashRegister', function() {
   describe('#getMode()', function() {
-    it('it generates an object ', function() {      	
-    	assert.equal(   typeof(   register.getMode()   ),'object'    );
+    it('it makes keys of all items in the array for the object it returns ', function() {     
+    	console.log(   cashRAMO   ) 	
+    	register.getMode()
+    	cashRA.map(function(x){
+    		assert.equal(   typeof(   cashRAMO[x]   )   ,'number'    );
+    	})
     });
   });
 });
