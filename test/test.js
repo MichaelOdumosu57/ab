@@ -32,9 +32,13 @@ class CashRegister {
 }      
 var cashRA = []
 var cashRAMO = {} // cashRA Mode Object helps to determine the mode for the object
+var cashRAMOA //Object.values used to find the mode
+var cashmodeVal; //int representing the interger val for the mode
 var a; //used for the inital length
 var b; //used for the final length
 var testRAMO = {} //used to test getMode
+var testRAMOA //Object.values used to find the mode
+var modeVal; //int representing the interger val for the mode
   
 const assert = require('assert'); 
 const register = new CashRegister();
@@ -76,7 +80,7 @@ describe('CashRegister', function() {
 
 describe('CashRegister', function() {
   describe('#getMode()', function() {
-    it('it should increment by one the value of the key if ringUp with the same int is called ', function() {     
+    it('it should grab the mode by returing the key of the greatest value from the object ', function() {     
     	register.ringUp(2)    	
     	console.log(   cashRA   )	
     	register.getMode()
@@ -87,12 +91,13 @@ describe('CashRegister', function() {
 			else{
 				testRAMO[x] += 1	
 			}
-		})    	 	
-    	cashRA.map(function(x){
-    		console.log(   cashRAMO   )    		
-    		console.log(   testRAMO   )
-    		assert.equal(  cashRAMO[x],testRAMO[x]    );
-    	})
+		})    	 
+		testRAMOA = Object.values(testRAMO)
+		console.log(testRAMO)
+    	modeVal = testRAMOA.indexOf(   Math.max(   ...testRAMOA   )   )  
+    	testRAMOA = Object.keys(testRAMO)
+    	console.log(   testRAMOA[modeVal]   ) 
+    	assert.equal(   register.getMode(),testRAMOA[modeVal]   )
     });
   });
 });
