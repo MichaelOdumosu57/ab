@@ -17,8 +17,15 @@ class CashRegister {
 		return cashRA.reduce(sum)/cashRA.length
 	}
 	getMode(){
-		cashRA.map(x => cashRAMO[x] = 0)
-		console.log(   cashRAMO   )
+		cashRA.map(x => {
+			if(   cashRAMO[x] === undefined   ){
+				cashRAMO[x] = 0
+			}
+			else{
+				cashRAMO[x] += 1	
+			}
+		})
+		// console.log(   cashRAMO   )
 		return cashRAMO
 	}	
 
@@ -71,18 +78,18 @@ describe('CashRegister', function() {
   describe('#getMode()', function() {
     it('it should increment by one the value of the key if ringUp with the same int is called ', function() {     
     	register.ringUp(2)    	
+    	console.log(   cashRA   )	
     	register.getMode()
-    	 	
+		cashRA.map(x => {
+			if(   testRAMO[x] === undefined   ){
+				testRAMO[x] = 0
+			}
+			else{
+				testRAMO[x] += 1	
+			}
+		})    	 	
     	cashRA.map(function(x){
-    		cashRA.map(x => {
-    			if(   testRAMO[x] === undefined   ){
-    				testRAMO[x] = 0
-    			}
-    			else{
-    				testRAMO[x] += 1	
-    			}
-    		})
-    		console.log(   cashRAMO   )
+    		console.log(   cashRAMO   )    		
     		console.log(   testRAMO   )
     		assert.equal(  cashRAMO[x],testRAMO[x]    );
     	})
