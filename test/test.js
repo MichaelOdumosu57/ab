@@ -27,7 +27,7 @@ var cashRA = []
 var cashRAMO = {} // cashRA Mode Object helps to determine the mode for the object
 var a; //used for the inital length
 var b; //used for the final length
-
+var testRAMO = {} //used to test getMode
   
 const assert = require('assert'); 
 const register = new CashRegister();
@@ -69,11 +69,22 @@ describe('CashRegister', function() {
 
 describe('CashRegister', function() {
   describe('#getMode()', function() {
-    it('it makes keys of all items in the array for the object it returns ', function() {     
-    	console.log(   cashRAMO   ) 	
+    it('it should increment by one the value of the key if ringUp with the same int is called ', function() {     
+    	register.ringUp(2)    	
     	register.getMode()
+    	 	
     	cashRA.map(function(x){
-    		assert.equal(   typeof(   cashRAMO[x]   )   ,'number'    );
+    		cashRA.map(x => {
+    			if(   testRAMO[x] === undefined   ){
+    				testRAMO[x] = 0
+    			}
+    			else{
+    				testRAMO[x] += 1	
+    			}
+    		})
+    		console.log(   cashRAMO   )
+    		console.log(   testRAMO   )
+    		assert.equal(  cashRAMO[x],testRAMO[x]    );
     	})
     });
   });
